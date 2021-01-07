@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		74DA0F7B259AFA750094DB80 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA0F7A259AFA750094DB80 /* main.swift */; };
+		74DA0F84259AFACD0094DB80 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 74DA0F83259AFACD0094DB80 /* Alamofire */; };
+		74DA0F87259AFBF30094DB80 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA0F86259AFBF30094DB80 /* User.swift */; };
+		74DA0F8B259AFFC70094DB80 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 74DA0F8A259AFFC70094DB80 /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,7 @@
 /* Begin PBXFileReference section */
 		74DA0F77259AFA750094DB80 /* Requesting Data to the Database - FP iOS Mockup */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Requesting Data to the Database - FP iOS Mockup"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74DA0F7A259AFA750094DB80 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		74DA0F86259AFBF30094DB80 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74DA0F8B259AFFC70094DB80 /* SwiftyJSON in Frameworks */,
+				74DA0F84259AFACD0094DB80 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				74DA0F7A259AFA750094DB80 /* main.swift */,
+				74DA0F86259AFBF30094DB80 /* User.swift */,
 			);
 			path = "Requesting Data to the Database - FP iOS Mockup";
 			sourceTree = "<group>";
@@ -78,6 +85,10 @@
 			dependencies = (
 			);
 			name = "Requesting Data to the Database - FP iOS Mockup";
+			packageProductDependencies = (
+				74DA0F83259AFACD0094DB80 /* Alamofire */,
+				74DA0F8A259AFFC70094DB80 /* SwiftyJSON */,
+			);
 			productName = "Requesting Data to the Database - FP iOS Mockup";
 			productReference = 74DA0F77259AFA750094DB80 /* Requesting Data to the Database - FP iOS Mockup */;
 			productType = "com.apple.product-type.tool";
@@ -105,6 +116,10 @@
 				Base,
 			);
 			mainGroup = 74DA0F6E259AFA750094DB80;
+			packageReferences = (
+				74DA0F82259AFACD0094DB80 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				74DA0F89259AFFC70094DB80 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 74DA0F78259AFA750094DB80 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -119,6 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74DA0F87259AFBF30094DB80 /* User.swift in Sources */,
 				74DA0F7B259AFA750094DB80 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +301,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		74DA0F82259AFACD0094DB80 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.1;
+			};
+		};
+		74DA0F89259AFFC70094DB80 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		74DA0F83259AFACD0094DB80 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74DA0F82259AFACD0094DB80 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		74DA0F8A259AFFC70094DB80 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74DA0F89259AFFC70094DB80 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 74DA0F6F259AFA750094DB80 /* Project object */;
 }
