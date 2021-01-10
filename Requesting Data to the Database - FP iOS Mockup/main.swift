@@ -20,7 +20,7 @@ func getUsers() {
         .responseData { response in
             switch response.result {
             case .success:
-                //print(JSON(response.data))
+                // print(JSON(response.data))
                 print("successfully fetched user data")
                 guard let userData = response.data else { return }
                 do {
@@ -62,6 +62,7 @@ func getUserByID(id: String) { /// id: 5ff791646486b1130074e2c3
             } /// End Switch Statement
         }
 }
-//getUsers()
-getUserByID(id: "5ff791646486b1130074e2c3")
+
+// getUsers()
+// getUserByID(id: "5ff791646486b1130074e2c3")
 dispatchMain()

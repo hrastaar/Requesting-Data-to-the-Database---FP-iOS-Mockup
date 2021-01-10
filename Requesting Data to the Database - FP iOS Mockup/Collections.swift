@@ -23,6 +23,7 @@ struct Location: Decodable {
     let country: String?
     let zip: String?
     let coordinates: [Double]?
+
     enum CodingKeys: String, CodingKey {
         case address
         case city
@@ -39,7 +40,7 @@ struct Author: Decodable {
     let name: String
     let type: String
     let location: Location
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -58,7 +59,7 @@ struct Comments: Decodable {
     let parentId: String?
     let content: String
     let likes: [String]?
-    
+
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case createdAt
@@ -85,7 +86,7 @@ struct Feedback: Decodable {
     let covidImpact: String?
     let userId: String?
     let location: Location?
-    
+
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case createdAt
@@ -117,7 +118,7 @@ struct Posts: Decodable {
     let types: [String]?
     let language: [String]?
     let externalLinks: ExternalLinks
-    
+
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case createdAt
@@ -141,7 +142,7 @@ struct ExternalLinks: Decodable {
     let website: String?
     let playStore: String?
     let appStore: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case email
         case website
@@ -161,7 +162,7 @@ struct User: Decodable {
     let photo: String?
     let oneOf: AccountChoice? // two subschema's: individual account, organization account
     let anyOf: AnyOf?
-    
+
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case createdAt
@@ -226,7 +227,7 @@ struct OrganizationObjectives: Decodable {
     let global: Bool?
     let urls: IndividualAccountURLs
     let language: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case type
         case industry
@@ -261,7 +262,7 @@ struct OrganizationURLs: Decodable {
     let website: String?
     let playstore: String?
     let appstore: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case linkedin
         case twitter
@@ -270,8 +271,6 @@ struct OrganizationURLs: Decodable {
         case appstore
     }
 }
-
-
 
 struct Hide: Decodable {
     let address: Bool
@@ -283,7 +282,7 @@ struct Hide: Decodable {
 
 class AccountChoice: Decodable {
     let type: String
-    
+
     enum CodingKeys: String, CodingKey {
         case type
     }
@@ -291,23 +290,22 @@ class AccountChoice: Decodable {
 
 // 2.1.2.4.3.8.3
 class IndividualAccountChoice: AccountChoice {
-    
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.firstName = try container.decode(String.self, forKey: .firstName)
-        self.lastName = try container.decodeIfPresent(String.self, forKey: .lastName) ?? nil
-        self.needs = try container.decode(IndividualNeeds.self, forKey: .needs)
-        self.objectives = try container.decodeIfPresent(UserObjectives.self, forKey: .objectives) ?? nil
-        self.urls = try container.decodeIfPresent(IndividualAccountURLs.self, forKey: .urls) ?? nil
+        firstName = try container.decode(String.self, forKey: .firstName)
+        lastName = try container.decodeIfPresent(String.self, forKey: .lastName) ?? nil
+        needs = try container.decode(IndividualNeeds.self, forKey: .needs)
+        objectives = try container.decodeIfPresent(UserObjectives.self, forKey: .objectives) ?? nil
+        urls = try container.decodeIfPresent(IndividualAccountURLs.self, forKey: .urls) ?? nil
         try super.init(from: decoder)
-
     }
+
     let firstName: String
     let lastName: String?
     let needs: IndividualNeeds
     let objectives: UserObjectives?
     let urls: IndividualAccountURLs?
-    
+
     enum CodingKeys: String, CodingKey {
         case firstName
         case lastName
@@ -319,19 +317,18 @@ class IndividualAccountChoice: AccountChoice {
 
 // 2.1.2.4.3.26.2
 class OrganizationChoice: AccountChoice {
-    
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.industry = try container.decode(String.self, forKey: .industry)
-        self.ownerId = try container.decode(String.self, forKey: .ownerId)
-        self.name = try container.decode(String.self, forKey: .name)
-        self.needs = try container.decode(OrganizationNeeds.self, forKey: .needs)
-        self.global = try container.decodeIfPresent(Bool.self, forKey: .global)
-        self.urls = try container.decodeIfPresent(OrganizationURLs.self, forKey: .urls) ?? nil
-        self.language = try container.decodeIfPresent(String.self, forKey: .language) ?? nil
+        industry = try container.decode(String.self, forKey: .industry)
+        ownerId = try container.decode(String.self, forKey: .ownerId)
+        name = try container.decode(String.self, forKey: .name)
+        needs = try container.decode(OrganizationNeeds.self, forKey: .needs)
+        global = try container.decodeIfPresent(Bool.self, forKey: .global)
+        urls = try container.decodeIfPresent(OrganizationURLs.self, forKey: .urls) ?? nil
+        language = try container.decodeIfPresent(String.self, forKey: .language) ?? nil
         try super.init(from: decoder)
-
     }
+
     let industry: String
     let ownerId: String
     let name: String
@@ -339,7 +336,7 @@ class OrganizationChoice: AccountChoice {
     let global: Bool?
     let urls: OrganizationURLs?
     let language: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case type
         case industry
@@ -358,14 +355,14 @@ class AnyOf: Decodable {
 
 // 2.1.2.4.3.45.2
 class EmailInfo: AnyOf {
-    
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.email = try container.decode(String.self, forKey: .email)
+        email = try container.decode(String.self, forKey: .email)
         try super.init(from: decoder)
     }
-    
+
     let email: String
+
     enum CodingKeys: String, CodingKey {
         case email
     }
@@ -373,14 +370,14 @@ class EmailInfo: AnyOf {
 
 // 2.1.2.4.3.47.2
 class PhoneInfo: AnyOf {
-    
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.phone = try container.decode(String.self, forKey: .phone)
+        phone = try container.decode(String.self, forKey: .phone)
         try super.init(from: decoder)
     }
-    
+
     let phone: String
+
     enum CodingKeys: String, CodingKey {
         case phone
     }
