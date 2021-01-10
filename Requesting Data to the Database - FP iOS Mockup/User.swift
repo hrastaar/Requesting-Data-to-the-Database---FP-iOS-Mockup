@@ -11,18 +11,20 @@ struct User: Decodable {
     let id: String
     let hide: Hide
     let needs: Needs
-    let objectives: Objectives
+    let objectives: Objectives?
+    let urls: UserURLData?
     let type: String
     let firstName: String
-    let lastName: String
-    let photo: String
+    let lastName: String?
+    let photo: String?
     let location: Location?
-    
+
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case hide
         case needs
         case objectives
+        case urls
         case type
         case firstName
         case lastName
@@ -33,6 +35,7 @@ struct User: Decodable {
 
 struct Hide: Decodable {
     let address: Bool
+
     enum CodingKeys: String, CodingKey {
         case address
     }
@@ -41,6 +44,7 @@ struct Hide: Decodable {
 struct Needs: Decodable {
     let medicalHelp: Bool
     let otherHelp: Bool
+
     enum CodingKeys: String, CodingKey {
         case medicalHelp
         case otherHelp
@@ -51,6 +55,7 @@ struct Objectives: Decodable {
     let donate: Bool
     let shareInformation: Bool
     let volunteer: Bool
+
     enum CodingKeys: String, CodingKey {
         case donate
         case shareInformation
@@ -58,11 +63,28 @@ struct Objectives: Decodable {
     }
 }
 
+struct UserURLData: Decodable {
+    let facebook: String?
+    let linkedin: String?
+    let twitter: String?
+    let github: String?
+    let website: String?
+
+    enum CodingKeys: String, CodingKey {
+        case facebook
+        case linkedin
+        case twitter
+        case github
+        case website
+    }
+}
+
 struct Location: Decodable {
-    let address: String
-    let city: String
-    let state: String
-    let country: String
+    let address: String?
+    let city: String?
+    let state: String?
+    let country: String?
+
     enum CodingKeys: String, CodingKey {
         case address
         case city
