@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		74DA0F7B259AFA750094DB80 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA0F7A259AFA750094DB80 /* main.swift */; };
 		74DA0F84259AFACD0094DB80 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 74DA0F83259AFACD0094DB80 /* Alamofire */; };
-		74DA0F87259AFBF30094DB80 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA0F86259AFBF30094DB80 /* User.swift */; };
+		74DA0F87259AFBF30094DB80 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA0F86259AFBF30094DB80 /* Collections.swift */; };
 		74DA0F8B259AFFC70094DB80 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 74DA0F8A259AFFC70094DB80 /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 /* Begin PBXFileReference section */
 		74DA0F77259AFA750094DB80 /* Requesting Data to the Database - FP iOS Mockup */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Requesting Data to the Database - FP iOS Mockup"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74DA0F7A259AFA750094DB80 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		74DA0F86259AFBF30094DB80 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		74DA0F86259AFBF30094DB80 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				74DA0F7A259AFA750094DB80 /* main.swift */,
-				74DA0F86259AFBF30094DB80 /* User.swift */,
+				74DA0F86259AFBF30094DB80 /* Collections.swift */,
 			);
 			path = "Requesting Data to the Database - FP iOS Mockup";
 			sourceTree = "<group>";
@@ -134,7 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74DA0F87259AFBF30094DB80 /* User.swift in Sources */,
+				74DA0F87259AFBF30094DB80 /* Collections.swift in Sources */,
 				74DA0F7B259AFA750094DB80 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
